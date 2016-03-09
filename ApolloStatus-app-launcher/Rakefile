@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+$:.unshift("/Library/RubyMotion/lib")
+require 'motion/project/template/osx'
+begin
+  require 'bundler'
+  Bundler.require
+rescue LoadError
+end
+
+Motion::Project::App.setup do |app|
+  # Use `rake config' to see complete project settings.
+  app.name = 'ApolloStatus-app-launcher'
+  app.version = '0.2'
+  app.short_version = '0.2'
+  # app.icon = 'ApolloStatus-app-launcher.icns' # add your icon to /resources
+  app.identifier = 'com.your-name.ApolloStatus-app-launcher'
+  app.entitlements['com.apple.security.app-sandbox'] = true
+  # app.copyright = "Copyright © 2014"
+  # app.deployment_target = "10.9"
+
+  app.release do
+    app.codesign_certificate = "Developer ID Application: Your id name (code)"
+  end
+end
